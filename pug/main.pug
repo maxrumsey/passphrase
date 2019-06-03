@@ -1,0 +1,74 @@
+doctype html
+html(lang="en")
+  head
+    style.
+      #loader {
+        background: grey;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        vertical-align: middle;
+        z-index: 1001;
+      }
+      #loader h1 {
+        margin-top: 0;
+        padding-top: 25vh;
+      }
+      body {
+        margin: 0;
+      }
+    title Passphrase
+    script(type='text/javascript', src='/static/js/main.js').
+    link(rel='stylesheet', type='text/css', href='/static/css/main.css')
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+
+  body
+    div(id="loader")
+      h1 Loading
+      h2 Please Be Patient
+    div(id="main")
+      div(id="side-column", class='main-column')
+        ul(id="side-list")
+          h1 Passphrase
+          li
+            button(class="btn btn-secondary", onclick='createServicePopup()') Create Service
+          li
+            h3 Admin Panel Login
+            form(method='POST', action='/main/admin-login')
+              div(class="input-group mb-3")
+                input(class='form-control', name='password', type='password', placeholder='Admin Login Password')
+                br
+                input(class="btn btn-primary", type='submit')
+          li
+            a(class="btn btn-link", href='/settings') Settings
+          li
+            a(class="btn btn-link", href='/logout') Logout
+      div(id='main-column', class='main-column')
+        div(id='servicesDiv')
+          each service in file.services
+            div(class='website-card')
+              h2= service.name
+              if service.url
+                p Url: #{service.url}
+              button(class="btn btn-primary", onclick=('servicePopup("' + service.name + '")')) Open
+    div(class='popup', id='serviceInfo')
+      div(id='serviceInfo-header')
+        span Name:
+        div(class="input-group mb-3")
+          input(class='form-control', id='serviceInfo-name')
+        span URL:
+        div(class="input-group mb-3") 
+          input(class='form-control', id='serviceInfo-url')
+      button(class="btn serviceInfo-btn btn-primary", onclick='saveServicePopup()') Save
+      button(class="btn serviceInfo-btn btn-warning", onclick='closeServicePopup()') Close
+      button(class="btn serviceInfo-btn btn-danger", onclick='deleteService()') Delete
+      ul(id='serviceInfo-entries')
+    div(class='popup', id='createService')
+      h1 Create Service
+      div(class="input-group mb-3") 
+        input(class='form-control', placeholder='Name of Service', id='createService-name')
+      div(class="input-group mb-3") 
+        input(class='form-control', placeholder='URL of Service', id='createService-url')
+      button(class="btn btn-primary", onclick='createCreateServicePopup()') Save
+      button(class="btn btn-warning", onclick='closeCreateServicePopup()') Close

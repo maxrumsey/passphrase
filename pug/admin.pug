@@ -1,0 +1,81 @@
+doctype html
+html(lang="en")
+  head
+    style.
+      body {
+        margin: 0;
+      }
+      textarea {
+        height: 30vh;
+        width: 55vw;
+      }
+    title Passphrase
+    link(rel='stylesheet', type='text/css', href='/static/css/main.css')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+
+  body
+    div(id="main")
+      div(id="side-column", class='main-column')
+        ul(id="side-list")
+          h1 Passphrase
+          h2 Admin Panel
+          li
+            a(class="btn btn-link", href='/main') Return to main
+          li
+            a(class="btn btn-link", href='/logout') Logout
+      div(id='main-column', class='main-column')
+        if (msg)
+          div(class="alert alert-primary", role="alert")= msg
+        form(method='POST', id='adminFORM')
+          h3 Change Server Config
+          input(type='hidden', name='type', value='config')
+          p ENV
+          textarea(name='env', formid='adminFORM')= env
+          br
+          span ADMIN: Admin Password
+          br
+          span VERIFY: Verification Key
+          br
+          span SALTROUNDS: Number of times hash is hashed.
+          br
+          span PORT: Port number server runs on
+          br
+          br
+
+          p CONFIG
+          textarea(name='config', formid='adminFORM')= config
+          br
+          span "LOGIN": Password for HTTP auth. To disable leave as false.
+          br
+          span "PUBLIC": Whether account creation is available to the public. true | false
+          br
+          input(class="btn btn-primary", type='submit')
+        form(method='POST')
+          h3 Delete User Account
+          input(type='hidden', name='type', value='delete')
+          div(class="input-group mb-3")
+            div(class="input-group-prepend")
+              span(class="input-group-text" id="inputGroup-sizing-default") User Account
+            input(class="form-control", name='username', type='text', placeholder='User Account')
+          input(class="btn btn-primary", type='submit')
+        form(method='POST')
+          h3 Create User Account
+          input(type='hidden', name='type', value='user')
+          div(class="input-group mb-3")
+            div(class="input-group-prepend")
+              span(class="input-group-text" id="inputGroup-sizing-default") Username
+            input(class="form-control", name='username', type='text', placeholder='Username')
+          div(class="input-group mb-3")
+            div(class="input-group-prepend")
+              span(class="input-group-text" id="inputGroup-sizing-default") Password
+            input(class="form-control", name='password1', type='password', placeholder='Password')
+          div(class="input-group mb-3")
+            div(class="input-group-prepend")
+              span(class="input-group-text" id="inputGroup-sizing-default") Confirm Password
+            input(class="form-control", name='password2', type='password', placeholder='Confirm Password')
+          input(class="btn btn-primary", type='submit')
+        h3 Users List
+        each user in users
+          p= user
+
+        

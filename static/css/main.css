@@ -1,0 +1,82 @@
+.disabled {
+	display: none;
+}
+.main-column {
+	float: left;
+	height: 100vh;
+	overflow: scroll;
+}
+#main-column {
+	padding: 15px;
+	width: 75vw;
+}
+#side-column {
+	background: blue;
+	width: 25vw;
+	height: 100vh;
+	color: white;
+	padding: 5px;
+}
+.popup {
+	display: none;
+	z-index: 1005;
+	margin: 0 calc(12.5vw / 2 + 25vw);
+	width: 62.5vw;
+	height: 75vh;
+	overflow: scroll;
+	position: fixed;
+	top: calc(25vh / 2);
+	border: 1px solid black;
+	text-align: center;
+	background: white;
+	padding: 1em;
+}
+#serviceInfo-entries {
+	border-top: 1px solid black;
+	margin-top: 1em;
+}
+#serviceInfo-entries li {
+	border-bottom: 1px solid black;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#side-list li {
+	color: white;
+	padding: 12.5px 0;
+}
+#side-list li:hover {
+	background: white;
+	color: black;
+}
+#side-list li h3 {
+	margin: 0;
+}
+a:-webkit-any-link {
+	color: white;
+}
+#side-list li:hover a {
+	color: black;
+}
+.website-card {
+	border: 1px solid black;
+	width: 50vw;
+	margin-bottom: 1em;
+	padding: 1em;
+	border-radius: .25rem;
+}
+.website-card-col {
+	float: left;
+}
+#serviceInfo-header {
+	padding-bottom: 1em;
+}
+.serviceInfo-btn {
+	margin-right: 1em;
+}
+.marginTopButton {
+	margin-top: 1em;
+}

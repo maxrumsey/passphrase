@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	padding: 1em 15vw;
+	background: #4e8ef4;
+	color: white;
+}
+.whiteBox {
+	padding: 1em;
+	background: white;
+	display: inline-block;
+	padding: 25px;
+	margin: 25px;
+	color: black;
+}
+footer {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: white;
+	color: black;
+	padding: 1em;
+	text-align: left;
+}
+footer p {
+	margin: 0;
+}

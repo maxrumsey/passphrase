@@ -1,0 +1,22 @@
+{
+  "name": "passphrase",
+  "version": "1.0.0",
+  "description": "A developer orientated encrypted password manager.",
+  "main": "server.js",
+  "scripts": {
+    "nodemon": "nodemon server.js --ignore .env --ignore config.json",
+    "start": "mkdir -p data; node server.js"
+  },
+  "author": "Max Rumsey (maxrumsey.xyz) <max@maxrumsey.xyz>",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cryptr": "^4.0.2",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "express-async-errors": "^3.1.1",
+    "js-sha512": "^0.8.0",
+    "pug": "^2.0.3",
+    "readline-sync": "^1.4.9"
+  }
+}
