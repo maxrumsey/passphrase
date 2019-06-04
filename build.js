@@ -1,4 +1,10 @@
-const readline = require('readline-sync');
+let readline;
+try {
+	readline = require('readline-sync');
+} catch (e) {
+	console.log('Error loading external dependencies. Have you run `npm install`?')
+	process.exit(1)
+}
 const fs = require('fs');
 const crypto = require('crypto');
 const db = require('./db')
@@ -15,7 +21,7 @@ async function run() {
 
 		if (isNaN(parseInt(results.round))) results.rounds = 10;
 
-		results.authRequired = readline.question('Require an basic HTTP authorization (Y/n)? ').toUpperCase() === 'Y';
+		results.authRequired = readline.question('Require basic HTTP authorization (Y/n)? ').toUpperCase() === 'Y';
 
 		if (results.authRequired) results.authPassword = readline.question('Enter the HTTP authorization password: ');
 

@@ -1,8 +1,10 @@
 body {
 	margin: 0;
 	padding: 1em 15vw;
-	background: #4e8ef4;
+	background: rgb(66,134,244);
+	background: linear-gradient(180deg, rgba(66,134,244,1) 35%, rgba(0,212,255,1) 100%);
 	color: white;
+	height: 100vh;
 }
 .whiteBox {
 	padding: 1em;

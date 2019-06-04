@@ -8,14 +8,22 @@
 }
 #main-column {
 	padding: 15px;
-	width: 75vw;
+	width: calc(75vw - 2em);
+	margin: 1em;
+	height: calc(100vh - 2em);
+	overflow: scroll;
 }
 #side-column {
-	background: blue;
+	background: rgb(66,134,244);
+	background: linear-gradient(180deg, rgba(66,134,244,1) 35%, rgba(0,212,255,1) 100%);
 	width: 25vw;
 	height: 100vh;
 	color: white;
 	padding: 5px;
+}
+#main {
+	background: rgb(66,134,244);
+	background: linear-gradient(90deg, rgba(66,134,244,1) 35%, rgba(0,212,255,1) 100%);
 }
 .popup {
 	display: none;
